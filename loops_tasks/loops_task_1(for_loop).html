@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Loops: Task 1</title>
+    <style>
+      * {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+    </section>
+
+  </body>
+  <script>
+      const groceries = ['tomatoes', 'chick peas', 'onions', 'rice', 'black beans'];
+      const list = document.createElement('ul');
+      // Add your code here 
+      for (let i=0; i <= groceries.length-1; i++){
+        groceryName = groceries[i];
+        const listItem = document.createElement('li');
+        listItem.textContent = groceryName;
+        list.appendChild(listItem);
+      }
+      // Don't edit the code below here!
+      
+      const section = document.querySelector('section');
+      section.appendChild(list);
+  </script>
+
+</html>
