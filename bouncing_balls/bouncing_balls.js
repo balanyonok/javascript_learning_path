@@ -18,6 +18,11 @@ function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
 
+// number of balls
+const paragraph = document.querySelector("p");
+const paragraphText = paragraph.textContent;
+let numberOfBalls = 0;
+
 class Shape {
     
   constructor(x, y, velX, velY) {
@@ -138,6 +143,8 @@ class EvilCircle extends Shape {
 
           if (distance < this.size + ball.size) {
             ball.exists = false;
+            numberOfBalls--;
+            paragraph.textContent = `${paragraphText} ${numberOfBalls}`;
           }
        }
     }
@@ -147,18 +154,19 @@ class EvilCircle extends Shape {
 const balls = [];
 
 while (balls.length < 25) {
-   const size = random(10,20);
-   const ball = new Ball(
-      // ball position always drawn at least one ball width
-      // away from the edge of the canvas, to avoid drawing errors
-      random(0 + size,width - size),
-      random(0 + size,height - size),
-      random(-7,7),
-      random(-7,7),
-      randomRGB(),
-      size
+  const size = random(10,20);
+  const ball = new Ball(
+    // ball position always drawn at least one ball width
+    // away from the edge of the canvas, to avoid drawing errors
+    random(0 + size,width - size),
+    random(0 + size,height - size),
+    random(-7,7),
+    random(-7,7),
+    randomRGB(),
+    size
    );
-
+  numberOfBalls++;
+  paragraph.textContent = `${paragraphText} ${numberOfBalls}`;
   balls.push(ball);
 }
 
@@ -183,3 +191,5 @@ function loop() {
 }
 
 loop();
+
+
